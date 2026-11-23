@@ -34,11 +34,7 @@ run_version_script() {
     # Decide script based on full version
     case $VERSION_ID in
         "22.04")
-            if [[ "$FULL_VERSION" == "22.04.4" ]]; then
-                SCRIPT="$SCRIPT_DIR/install-eSim-22.04.sh"
-            else
-                SCRIPT="$SCRIPT_DIR/install-eSim-23.04.sh"
-            fi
+            SCRIPT="$SCRIPT_DIR/install-eSim-22.04.sh"
             ;;
         "23.04")
             SCRIPT="$SCRIPT_DIR/install-eSim-23.04.sh"
@@ -66,7 +62,8 @@ run_version_script() {
     echo "IMAGES = %(eSim_HOME)s/images" >> $config_dir/$config_file
     echo "VERSION = %(eSim_HOME)s/VERSION" >> $config_dir/$config_file
     echo "MODELICA_MAP_JSON = %(eSim_HOME)s/library/ngspicetoModelica/Mapping.json" >> $config_dir/$config_file
-   
+        fi
+
 }
 
 
